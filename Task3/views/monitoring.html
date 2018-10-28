@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Яндекс Дом/Видеонаблюдение</title>
+    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../css/videoMonitoringStyle.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+        <!--Core js-->
+        <script src="../js/videoMonitoring.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body class="main-panel">
+    <div class="navigation position-fixed">
+        <div class="navigation-block">
+            <div class="navigation-logo"><img src="../../img/Яндекс Дом@2x.png" /></div>
+            <nav class="navigation-collapse">
+                <div class="navigation-nav">
+                    <div class="nav-item"><a class="nav-link" href="../../index.html">События</a></div>
+                    <div class="nav-item"><a class="nav-link" href="#">Сводка</a></div>
+                    <div class="nav-item"><a class="nav-link" href="#">Устройства</a></div>
+                    <div class="nav-item"><a class="nav-link" href="#">Сценарии</a></div>
+                    <div class="nav-item"><a class="nav-link" href="monitoring.html">Видеонаблюдение</a></div>
+                </div>
+            </nav>
+            <div class="menu-toggle-switch"><img src="../../img/icon_list_m@1x.svg" /></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="main-feed">Видеонаблюдение</h1>
+        <div class="grid-container"> 
+            <div class="grid-item m" id="box-1">
+                <div class="device-header">
+                    <p class="item-content-header">Камера 1</p>
+                </div>
+                <div class="device-content">
+                    <video id="video-1" class="video" controls muted autoplay></video>
+                    <div class="video-control">
+                        <div class="video-range">
+                            <label>Яркость</label>
+                            <input type="range" id="brightness-1" value="1"  step = "0.1" min="1" max="5" oninput="changeBrightnessFilter('video-1', value)" />
+                            <label>Контраст</label>
+                            <input type="range" id="contrast-1" value="1" step = "0.1" min="0.25" max="10" oninput="changeContrastFilter('video-1', value)" />   
+                        </div> 
+                        <label class="volume-graph-label">Ур. громкости</label>
+                        <canvas id="volume-graph-1" class="volume-video"></canvas>   
+                    </div>
+                </div>
+                <div class="next">
+                    <img src="../../img/Next.svg"/>
+                </div>
+            </div>
+            <div class="grid-item m" id="box-2">
+                <div class="device-header">
+                    <p class="item-content-header">Камера 2</p>
+                </div>
+                <div class="device-content">
+                    <video id="video-2" class="video" controls muted autoplay></video>
+                    <div class="video-control">
+                        <div class="video-range">
+                            <label for="#brightness-2">Яркость</label>
+                            <input type="range" value="1" id="brightness-2" step = "0.1" min="1" max="5"/>
+                            <label for="#contrast-2">Контраст</label>
+                            <input type="range" value="1" id="contrast-2" step = "0.1" min="0.25" max="10"/>
+                        </div>
+                        <label class="volume-graph-label">Ур. громкости</label>
+                        <canvas id="volume-graph-2" class="volume-video"></canvas>   
+                    </div>
+                </div>
+                <div class="next">
+                    <img src="../../img/Next.svg" />
+                </div>
+            </div>
+            <div class="grid-item m" id="box-3">
+                <div class="device-header">
+                    <p class="item-content-header">Камера 3</p>
+                </div>
+                <div class="device-content">
+                    <video id="video-3" class="video" controls muted autoplay></video>
+                    <div class="video-control">
+                        <div class="video-range">
+                            <label>Яркость</label>
+                            <br><input type="range" value="1" id="brightness-3" step = "0.1" min="1" max="5"/>
+                            <br><label>Контраст</label>
+                            <br><input type="range" value="1" id="contrast-3" step = "0.1" min="0.25" max="10"/>    
+                        </div>
+                        <label class="volume-graph-label">Ур. громкости</label>
+                        <canvas id="volume-graph-3" class="volume-video"></canvas>  
+                    </div>
+                </div>
+                <div class="next">
+                    <img src="../../img/Next.svg" />
+                </div>
+            </div>
+            <div class="grid-item m" id="box-4">
+                <div class="device-header">
+                    <p class="item-content-header">Камера 4</p>
+                    <button style="display:none" class="btn btn-default">Все камеры</button>
+                </div>
+                <div class="device-content">
+                    <video id="video-4" class="video" controls muted autoplay></video>
+                    <div class="video-control">
+                        <div class="video-range">
+                            <label>Яркость</label>
+                            <input type="range" value="1" id="brightness-4" step = "0.1" min="1" max="5" />
+                            <label>Контраст</label>
+                            <input type="range" value="1" id="contrast-4" step = "0.1" min="0.25" max="10"/>    
+                        </div>
+                        <label class="volume-graph-label">Ур. громкости</label>
+                        <canvas id="volume-graph-4" class="volume-video"></canvas>  
+                    </div>
+                </div>
+                <div class="next">
+                    <img src="../../img/Next.svg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="#">Помощь</a></li>
+            <li><a href="#">Обратная связь</a></li>
+            <li><a href="#">Разработчикам</a></li>
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="../data/license.pdf">Авторские права</a></li>
+        </ul>
+        <p class="copy">&copy 2001-2017 ООО "Яндекс"</p>
+    </footer>
+
+</body>
+
+</html>

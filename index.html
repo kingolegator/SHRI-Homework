@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Яндекс Дом</title>
+    <link href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+</head>
+
+<body class="main-panel">
+    <div class="navigation position-fixed">
+        <div class="navigation-block">
+            <div class="navigation-logo"><img src="img/Яндекс Дом@2x.png" /></div>
+            <nav class="navigation-collapse">
+                <div class="navigation-nav">
+                    <div class="nav-item"><a class="nav-link" href="#">События</a></div>
+                    <div class="nav-item"><a class="nav-link" href="#">Сводка</a></div>
+                    <div class="nav-item"><a class="nav-link" href="#">Устройства</a></div>
+                    <div class="nav-item"><a class="nav-link" href="#">Сценарии</a></div>
+                    <div class="nav-item"><a class="nav-link" href="Task3/views/monitoring.html">Видеонаблюдение</a></div>
+                </div>
+            </nav>
+            <div class="menu-toggle-switch"><img src="img/icon_list_m@1x.svg" /></div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="main-feed">Лента событий</h1>
+        <div id="app">
+            <div class="grid-container">
+                <div class="grid-item l">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src='img/info.svg' />
+                        </div>
+                        <p class="item-content-header">Еженедельный отчет по расходам ресурсов</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Сенсоры потребления</p>
+                        <p>19:00, Сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем
+                            неделей ранее.</p>
+                        <img class="big-img" src="img/Richdata.png" />
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item s">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/smart-home.svg" />
+                        </div>
+                        <p class="item-content-header">Дверь открыта</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Сенсор входной двери</p>
+                        <p>18.50, сегодня</p>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item s">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/robot-cleaner.svg" />
+                        </div>
+                        <p class="item-content-header">Уборка закончена</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Пылесос</p>
+                        <p>18.45, сегодня</p>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item s">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/router.svg" />
+                        </div>
+                        <p class="item-content-header">Новый пользователь</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Роутер</p>
+                        <p>18:50, сегодня</p>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item m">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/thermal.svg" />
+                        </div>
+                        <p class="item-content-header">Изменен климатический режим</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Сенсор микроклимата</p>
+                        <p>18:30, сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">Установлен климатический режим «Фиджи» </p>
+                        <div class="device-footer">
+                            <p>Температура: <b>24 C</b> </p>
+                            <p>Влажность: <b>80%</b></p>
+                        </div>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item m item-warning">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/ac-white.svg" />
+                        </div>
+                        <p class="item-content-header">Невозможно включить кондиционер</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Кондиционер</p>
+                        <p>18:21, сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">В комнате открыто окно, закройте его и повторите попытку </p>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item m">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/music.svg" />
+                        </div>
+                        <p class="item-content-header">Музыка включена</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Яндекс.Станция</p>
+                        <p>18:16, сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">Сейчас проигрывается:</p>
+                        <div class="device-music">
+                            <img src="https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000" />
+                            <div class="music-info">
+                                <p class="music-name">Florence & The Machine - Big God</p>
+                                <input class="music-range" type="range" id="start" name="volume" min="0" max="100" />
+                                <p class="music-length">4:31</p>
+                            </div>
+                        </div>
+                        <div class="music-control">
+                            <button class="btn"><img src="img/Prev.svg"></button>
+                            <button class="btn"><img src="img/Prev.svg"></button>
+                            <input class="volume-range" type="range" id="start" name="volume" min="0" max="100" />
+                            <p class="music-length">80%</p>
+                        </div>
+                        <div class="next">
+                            <img src="img/Next.svg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item m">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/fridge.svg" />
+                        </div>
+                        <p class="item-content-header">Заканчивается молоко</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Холодильник</p>
+                        <p>17:23, сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список
+                            покупок?</p>
+                        <div class="device-footer">
+                            <div class="footer-button">
+                                <button class="btn btn-default active">Да</button>
+                                <button class="btn btn-default">Нет</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item s">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/battery.svg" />
+                        </div>
+                        <p class="item-content-header">Зарядка завершена</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Оконный сенсор</p>
+                        <p>16:22, сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">Ура! Устройство «Оконный сенсор» снова в строю!</p>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item l item-warning">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/cam-white.svg" />
+                        </div>
+                        <p class="item-content-header">Пылесос застрял</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Сенсор движения</p>
+                        <p>16:20, сегодня</p>
+                    </div>
+                    <div class="device-content">
+                        <p class="device-text">Робопылесос не смог сменить свое местоположение в течение последних 3 минут.
+                            Похоже, ему нужна помощь.
+                        </p>
+                        <div class="webcam-img">
+                            <img touch-action="none" id="webcam" src="img/image.jpg" />
+                        </div>
+                        <div class="control-webcam">
+                            <p id="zoom">Приближение: 80%</p>
+                            <p id="light">Яркость: 50%</p>
+                        </div>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+                <div class="grid-item s">
+                    <div class="cross">
+                        <img src="img/cross.svg" />
+                    </div>
+                    <div class="device-header">
+                        <div class="device-icon">
+                            <img src="img/kettle.svg" />
+                        </div>
+                        <p class="item-content-header">Вода вскипела</p>
+                    </div>
+                    <div class="device-description">
+                        <p>Чайник</p>
+                        <p>16:17, сегодня</p>
+                    </div>
+                    <div class="next">
+                        <img src="img/Next.svg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="#">Помощь</a></li>
+            <li><a href="#">Обратная связь</a></li>
+            <li><a href="#">Разработчикам</a></li>
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="data/license.pdf">Авторские права</a></li>
+        </ul>
+        <p class="copy">&copy 2001-2017 ООО "Яндекс"</p>
+    </footer>
+    
+    <!--Core js-->
+    <script src="js/script.js"></script>
+    <!-- <script src="js/template.js"></script> -->
+</body>
+
+</html>

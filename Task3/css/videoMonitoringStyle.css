@@ -1,0 +1,115 @@
+.video {
+    width: 100%;
+    margin: 2% auto 2% auto;
+    max-height: 300px;
+    background: black;
+}
+
+.full-page .video {
+    max-height: 300px;
+}
+
+.full-page{
+    z-index: 2;
+    margin-top: 0;
+}
+
+.volume-video, .volume-graph-label {
+    display: none;
+}
+
+.full-page .volume-graph-label, .full-page btn .btn-default {
+    display: block;
+}
+
+.full-page .volume-video {
+    display: block;
+    width: 20%;
+    height: 40%;
+    margin-left: 20px;
+    padding-bottom: 20px;
+}
+
+.video-control {
+    width: 100%;
+    font-size: 0.9rem;
+    display: flex;
+    font-weight: bold;
+}
+
+.video-range {
+    display: grid;
+}
+
+.video-control input {
+   max-width: 50%
+}
+
+@keyframes zoomScale {
+    0% {transform: scale(0.5);}
+    50% {transform: scale(0.75);}
+    100% {transform: scale(1); }
+}
+
+@keyframes unZoomScale {
+    0% {transform: scale(2);}
+    50% {transform: scale(1.5);}
+    100% {transform: scale(1); }
+}
+
+#box-1, #box-2, #box-3, #box-4  {
+    transform-origin: center;   
+}
+
+#box-1 .device-header, #box-2 .device-header,
+#box-3 .device-header, #box-4 .device-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#box-1 .item-content-header, #box-2 .item-content-header,
+#box-3 .item-content-header, #box-4 .item-content-header {
+    margin-left: 0;
+}
+
+@media only screen and (min-width: 769px) {
+    .video-control input {
+        max-width: 20%
+     }
+
+     .full-page .video {
+        max-height: 400px;
+    }
+
+    .video-control {
+        width: 100%;
+        font-size: 0.6rem;
+        display: flex;
+        font-weight: bold;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .video-range {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #box-1 {
+        transform-origin: left top;   
+    }
+    
+    #box-2 {
+        transform-origin: right top;   
+    }
+    
+    #box-3 {
+        transform-origin: left bottom;   
+    }
+    
+    #box-4 {
+        transform-origin: right bottom;   
+    }
+}
