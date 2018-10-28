@@ -24,14 +24,14 @@
     npm start
     ```
 
-    * Компиляция ts-исходников 2, 3 задания ``npm run tsCompile``
-    ts-скрипты расположены в папке ``./src`` и собираются в ``./js/bundle.js``
+    * Компиляция ts-исходников 2, 3 задания ``npm run tsCompile``.
+     ts-скрипты расположены в папке ``./src`` и собираются в ``./js/bundle.js``
 
     * Запуск 4-го задания node.js 
     ```sh
     cd Task4
     npm i
-    npm run tsCompile Исходники собираются из ./src в ./build
+    npm run tsCompile // "Исходники собираются из ./src в ./build"
     npm start
     ```
 ## Итоги
