@@ -70,11 +70,8 @@ function getVideoMonitoring() {
                     const frequencyBinArray = new Uint8Array(audioAnalyser.frequencyBinCount);
 
                     function averageByFrequency(frequency: Uint8Array) {
-                        let values = 0;
                         const length = frequency.length;
-                        for (let i = 0; i < length; i++) {
-                            values += frequency[i];
-                        }
+                        const values = frequencyBinArray.reduce((sum, value) => sum + value, 0);
                         return values / length;
                     }
 
@@ -120,13 +117,13 @@ function getVideoMonitoring() {
         },
 
         changeVideoFilter(videoEl: HTMLVideoElement, val: string, type: string) {
-            if (videoEl && videoEl.style && videoEl.style.filter != null) {
+            if (videoEl && videoEl.style && videoEl.style.filter !== null) {
                 const previousValue = videoEl.style.filter.match(/\w+-?[\d+\.]*/g);
                 switch (type) {
                     case "brightness":
                         if (previousValue && previousValue.indexOf("contrast") !== -1) {
                             videoEl.style.filter = `${type}(${val})
-                            contrast(${previousValue[previousValue.indexOf("contrast") + 1]})`;
+                                contrast(${previousValue[previousValue.indexOf("contrast") + 1]})`;
                         } else {
                             videoEl.style.filter = `${type}(${val})`;
                         }
@@ -134,7 +131,7 @@ function getVideoMonitoring() {
                     case "contrast":
                         if (previousValue && previousValue.indexOf("brightness") !== -1) {
                             videoEl.style.filter = `${type}(${val})
-                            brightness(${previousValue[previousValue.indexOf("brightness") + 1]})`;
+                                brightness(${previousValue[previousValue.indexOf("brightness") + 1]})`;
                         } else {
                             videoEl.style.filter = `${type}(${val})`;
                         }
@@ -247,25 +244,25 @@ function getVideoMonitoring() {
             //#endregion
 
             if (this.video1) {
-                this.video1.onclick = (function(e: Event) {
+                this.video1.onclick = ((e: Event) => {
                     this.videoClick(this.boxes[0], e.target, "#volume-graph-1");
                 }).bind(this);
             }
 
             if (this.video2) {
-                this.video2.onclick = (function(e: Event) {
+                this.video2.onclick = ((e: Event) => {
                     this.videoClick(this.boxes[1] as HTMLDivElement, e.target, "#volume-graph-2");
                 }).bind(this);
             }
 
             if (this.video3) {
-                this.video3.onclick = (function(e: Event) {
+                this.video3.onclick = ((e: Event) => {
                     this.videoClick(this.boxes[2], e.target, "#volume-graph-3");
                 }).bind(this);
             }
 
             if (this.video4) {
-                this.video4.onclick = (function(e: Event) {
+                this.video4.onclick = ((e: Event) => {
                     this.videoClick(this.boxes[3], e.target, "#volume-graph-4");
                 }).bind(this);
             }
