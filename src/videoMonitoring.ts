@@ -8,7 +8,7 @@ function getVideoMonitoring() {
 
     interface IVideo {
         audioCtx: AudioContext | null;
-        mapMediaElements: WeakMap<HTMLElement, null>;
+        mapMediaElements: WeakMap<HTMLVideoElement, MediaElementAudioSourceNode>;
         audioSource: MediaElementAudioSourceNode | null;
         boxes: HTMLDivElement[];
         video1: HTMLVideoElement | null;
