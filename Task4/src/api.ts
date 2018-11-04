@@ -1,20 +1,24 @@
-"use strict"
-const fs = require("fs");
-const constants = require("../app/constant");
-require("../app/helper");
+"use strict";
 
-const getEventsFile = (callback) => {
-    fs.readFile("./data/events.json", "utf8", callback);
+import constants from "./constant";
+import help from "./helper";
+import express from "express";
+import fs from "fs";
+
+declare type Callback = (err: Error, data: string) => express.Response;
+
+const getEventsFile = (callback: Callback): void => {
+    fs.readFile("data/events.json", "utf8", callback);
 };
 
-const isEmpty = (val) => {
+const isEmpty = (val: string | number): boolean => {
     return !(typeof (val) !== "undefined" && val !== null && val !== "");
 };
 
-//checking for the existence of a key value in constants. If there is no such key in the constants return true
-const validateValueOfProperty = (key, value) => {
+// checking for the existence of a key value in constants. If there is no such key in the constants return true
+const validateValueOfProperty = (key: string, value: string) => {
     if (!isEmpty(constants[key]) && !isEmpty(value)) {
-        const values = value.split(":");
+        const values: string[] = value.split(":");
         return values.every((item) => {
             return constants[key].indexOf(item) > -1;
         });
@@ -22,14 +26,14 @@ const validateValueOfProperty = (key, value) => {
     return true;
 };
 
-module.exports = {
-    timeUpStatus: (request, response) => {
-        const time = process.uptime();
-        const uptime = `${time}`.toHHMMSS();
+export default {
+    timeUpStatus: (request: express.Request, response: express.Response) => {
+        const time: number = process.uptime();
+        const uptime: string = help.toHHMMSS(time);
         return response.status(200).send(uptime);
     },
 
-    eventsHandling: (request, response) => {
+    eventsHandling: (request: express.Request, response: express.Response) => {
         let queryParam;
         switch (request.method) {
             case "POST":
@@ -42,32 +46,36 @@ module.exports = {
         let pageNumb = queryParam.pageNumb;
         let maxEntities = queryParam.maxEntities;
 
-        //clear the request object of unnecessary properties, for filtering by the correct first properties
+        // clear the request object of unnecessary properties, for filtering by the correct first properties
         if (!isEmpty(pageNumb) || !isEmpty(maxEntities)) {
             delete queryParam.pageNumb;
             delete queryParam.maxEntities;
         }
-
-        let filterParam = {};
+        interface IFilterParam {
+            key: string;
+            value: string;
+        }
+        let filterParam = {} as IFilterParam;
 
         if (Object.keys(queryParam).length) {
             filterParam = {
                 key: Object.keys(queryParam)[0],
-                value: queryParam[Object.keys(queryParam)[0]].toString()
+                value: queryParam[Object.keys(queryParam)[0]].toString(),
             };
             if (!validateValueOfProperty(filterParam.key, filterParam.value)) {
                 return response.status(400).send(`incorrect${filterParam.key}`);
             }
         }
 
-        const callback = (err, data) => {
+        const callback = (err: Error, data: string): express.Response => {
             if (err) {
                 throw err;
             }
             const originalEvents = JSON.parse(data).events;
 
             // if no parameters are specified for the filter, assign the original array
-            let finalEvents = Object.keys(filterParam).length ? Object.eventsFilter(originalEvents, filterParam) : originalEvents;
+            let finalEvents = Object.keys(filterParam).length ?
+                help.eventsFilter(originalEvents, filterParam) : originalEvents;
 
             // if there are no such events, return 400
             if (finalEvents.length < 1) {
@@ -77,7 +85,8 @@ module.exports = {
             // if paggination is enabled
             if (!isEmpty(pageNumb) && !isEmpty(maxEntities)) {
                 if (isNaN(pageNumb) || isNaN(maxEntities)) {
-                    return response.status(400).send(`incorrect [${isNaN(pageNumb) ? `{pageNumb: ${pageNumb}}` : ""}${isNaN(maxEntities) ? `{maxEntities: ${maxEntities}}` : ""}] values`);
+                    return response.status(400).send(`incorrect [${isNaN(pageNumb) ? `{pageNumb: ${pageNumb}}` :
+                        ""}${isNaN(maxEntities) ? `{maxEntities: ${maxEntities}}` : ""}] values`);
                 }
                 pageNumb = Math.abs(pageNumb);
                 maxEntities = Math.abs(maxEntities);
@@ -89,10 +98,11 @@ module.exports = {
                     finalEvents = finalEvents.slice((pageNumb - 1) * maxEntities, pageNumb * maxEntities);
                     return response.status(200).send(finalEvents);
                 }
-                return response.status(400).send(`incorrect page number, for a given number of entities available ${pagesCount} pcs`);
+                return response.status(400)
+                    .send(`incorrect page number, for a given number of entities available ${pagesCount} pcs`);
             }
             return response.status(200).send(finalEvents);
         };
         getEventsFile(callback);
-    }
+    },
 };

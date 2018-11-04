@@ -1,0 +1,23 @@
+{
+  "name": "front-task",
+  "version": "1.0.0",
+  "description": "## Описание",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsCompile": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingolegator/SHRI-Homework.git"
+  },
+  "author": "Oleg Olyushkevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingolegator/SHRI-Homework/issues"
+  },
+  "homepage": "https://github.com/kingolegator/SHRI-Homework#readme",
+  "devDependencies": {
+    "@types/hls.js": "^0.10.2"
+  }
+}
