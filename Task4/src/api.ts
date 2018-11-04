@@ -7,18 +7,18 @@ import fs from "fs";
 
 declare type Callback = (err: Error, data: string) => express.Response;
 
-const getEventsFile = (callback: Callback) => {
+const getEventsFile = (callback: Callback): void => {
     fs.readFile("data/events.json", "utf8", callback);
 };
 
-const isEmpty = (val: string | number) => {
+const isEmpty = (val: string | number): boolean => {
     return !(typeof (val) !== "undefined" && val !== null && val !== "");
 };
 
 // checking for the existence of a key value in constants. If there is no such key in the constants return true
 const validateValueOfProperty = (key: string, value: string) => {
     if (!isEmpty(constants[key]) && !isEmpty(value)) {
-        const values = value.split(":");
+        const values: string[] = value.split(":");
         return values.every((item) => {
             return constants[key].indexOf(item) > -1;
         });
