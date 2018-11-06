@@ -18,7 +18,6 @@ export default class Events {
     };
 
     trigger(event) {
-        debugger;
         this._events = this._events || {};
         if (event in this._events === false) {
             return;

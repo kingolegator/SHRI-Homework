@@ -12,8 +12,9 @@ dispatcher.register(
             case "CHANGE_PAGE":
                 storeData.trigger("click");
                 break;
+            default:
+                break;
         }
-        return true;
     }
 );
 
@@ -34,6 +35,9 @@ const myApp = {
             })
             .then((outHtml) => {
                 document.getElementsByClassName("container")[0].innerHTML = outHtml;
+                // init methods from bundle.js
+                makeGesture();
+                getVideoMonitoring();
             });
     },
 
@@ -50,6 +54,7 @@ const myApp = {
         } else {
             this.getPage(localStorage.getItem("currentPage"));
         }
+        debugger;
     },
 
     getEventsHandler: function () {

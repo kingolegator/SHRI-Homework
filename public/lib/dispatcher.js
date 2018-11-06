@@ -8,7 +8,6 @@ export default class Dispatcher {
   register(callback) {
     let id = this._lastID++;
     this._callbacks[id] = callback;
-    return id;
   };
 
   // removes a callback from the list of registered callbacks
@@ -18,7 +17,6 @@ export default class Dispatcher {
 
   // call all registered callbacks, passing them action
   dispatch(payload) {
-    debugger;
     for (const id in this._callbacks) {
       this._invokeCallback(id, payload);
     }

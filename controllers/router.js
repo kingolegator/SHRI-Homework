@@ -12,7 +12,7 @@ module.exports = (app) => {
     });
     
     app.get("/getMainPage", (req, res) => {
-        res.send(pug.renderFile("./views/index.pug"));
+        res.send(pug.renderFile("./views/events.pug"));
     });
 
     app.get("/getMonitoringPage", (req, res) => {

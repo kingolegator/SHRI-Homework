@@ -1,0 +1,188 @@
+doctype html
+html
+append container
+      h1.main-feed Лента событий
+      #app
+        .grid-container
+          .grid-item.l
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/info.svg')
+              p.item-content-header Еженедельный отчет по расходам ресурсов
+            .device-description
+              p Сенсоры потребления
+              p 19:00, Сегодня
+            .device-content
+              p.device-text
+                | Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем
+                | неделей ранее.
+              img.big-img(src='public/img/Richdata.png')
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.s
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/smart-home.svg')
+              p.item-content-header Дверь открыта
+            .device-description
+              p Сенсор входной двери
+              p 18.50, сегодня
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.s
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/robot-cleaner.svg')
+              p.item-content-header Уборка закончена
+            .device-description
+              p Пылесос
+              p 18.45, сегодня
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.s
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/router.svg')
+              p.item-content-header Новый пользователь
+            .device-description
+              p Роутер
+              p 18:50, сегодня
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.m
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/thermal.svg')
+              p.item-content-header Изменен климатический режим
+            .device-description
+              p Сенсор микроклимата
+              p 18:30, сегодня
+            .device-content
+              p.device-text Установлен климатический режим «Фиджи» 
+              .device-footer
+                p
+                  | Температура: 
+                  b 24 C
+                p
+                  | Влажность: 
+                  b 80%
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.m.item-warning
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/ac-white.svg')
+              p.item-content-header Невозможно включить кондиционер
+            .device-description
+              p Кондиционер
+              p 18:21, сегодня
+            .device-content
+              p.device-text В комнате открыто окно, закройте его и повторите попытку 
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.m
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/music.svg')
+              p.item-content-header Музыка включена
+            .device-description
+              p Яндекс.Станция
+              p 18:16, сегодня
+            .device-content
+              p.device-text Сейчас проигрывается:
+              .device-music
+                img(src='https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000')
+                .music-info
+                  p.music-name Florence & The Machine - Big God
+                  input#start.music-range(type='range', name='volume', min='0', max='100')
+                  p.music-length 4:31
+              .music-control
+                button.btn
+                  img(src='public/img/Prev.svg')
+                button.btn
+                  img(src='public/img/Prev.svg')
+                input#start.volume-range(type='range', name='volume', min='0', max='100')
+                p.music-length 80%
+              .next
+                img(src='public/img/Next.svg')
+          .grid-item.m
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/fridge.svg')
+              p.item-content-header Заканчивается молоко
+            .device-description
+              p Холодильник
+              p 17:23, сегодня
+            .device-content
+              p.device-text
+                | Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список
+                | покупок?
+              .device-footer
+                .footer-button
+                  button.btn.btn-default.active Да
+                  button.btn.btn-default Нет
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.s
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/battery.svg')
+              p.item-content-header Зарядка завершена
+            .device-description
+              p Оконный сенсор
+              p 16:22, сегодня
+            .device-content
+              p.device-text Ура! Устройство «Оконный сенсор» снова в строю!
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.l.item-warning
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/cam-white.svg')
+              p.item-content-header Пылесос застрял
+            .device-description
+              p Сенсор движения
+              p 16:20, сегодня
+            .device-content
+              p.device-text
+                | Робопылесос не смог сменить свое местоположение в течение последних 3 минут.
+                | Похоже, ему нужна помощь.
+              .webcam-img
+                img#webcam(touch-action='none', draggable='false', src='public/img/image.jpg')
+              .control-webcam
+                p#zoom Приближение: 80%
+                p#light Яркость: 50%
+            .next
+              img(src='public/img/Next.svg')
+          .grid-item.s
+            .cross
+              img(src='public/img/cross.svg')
+            .device-header
+              .device-icon
+                img(src='public/img/kettle.svg')
+              p.item-content-header Вода вскипела
+            .device-description
+              p Чайник
+              p 16:17, сегодня
+            .next
+              img(src='public/img/Next.svg')
