@@ -54,7 +54,6 @@ const myApp = {
         } else {
             this.getPage(localStorage.getItem("currentPage"));
         }
-        debugger;
     },
 
     getEventsHandler: function () {
