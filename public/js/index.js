@@ -24,7 +24,7 @@ const myApp = {
         const id = e.target.id;
         if (storeData.currentPage !== id) {
             this.getPage(id);
-            localStorage.setItem('currentPage', id);
+            localStorage.setItem("currentPage", id);
         }
     },
 
@@ -66,7 +66,7 @@ const myApp = {
     getPage: function (name) {
         storeData.currentPage = name;
         dispatcher.dispatch({
-            actionType: 'CHANGE_PAGE',
+            actionType: "CHANGE_PAGE",
             name: name
         })
     }
