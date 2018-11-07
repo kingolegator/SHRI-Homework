@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsCompile": "tsc -w"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
     "url": "https://github.com/kingolegator/SHRI-Homework/issues"
   },
   "homepage": "https://github.com/kingolegator/SHRI-Homework#readme",
-  "devDependencies": {
-    "@types/hls.js": "^0.10.2"
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
   }
 }

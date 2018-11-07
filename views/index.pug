@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title Яндекс Дом
+    link(href='public/css/style.css', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(charset='utf-8')
+    meta(name='robots', content='noindex')
+    script(src='https://code.jquery.com/pep/0.4.3/pep.js')
+    script(type='module', crossorigin='anonymous', src='public/js/index.js')
+    script(src='public/js/bundle.js')
+    script(src='https://cdn.jsdelivr.net/npm/hls.js@latest')
+  body.main-panel
+    .navigation.position-fixed
+      .navigation-block
+        .navigation-logo
+          img(src='public/img/Яндекс Дом@2x.png')
+        nav.navigation-collapse
+          .navigation-nav
+            .nav-item
+              a.nav-link(id='getMainPage') События
+            .nav-item
+              a.nav-link(href='#') Сводка
+            .nav-item
+              a.nav-link(href='#') Устройства
+            .nav-item
+              a.nav-link(href='#') Сценарии
+            .nav-item
+              a.nav-link(id='getMonitoringPage') Видеонаблюдение
+        .menu-toggle-switch
+          img(src='public/img/icon_list_m@1x.svg')
+    .container
+    footer
+      ul
+        li
+          a(href='#') Помощь
+        li
+          a(href='#') Обратная связь
+        li
+          a(href='#') Разработчикам
+        li
+          a(href='#') Условия использования
+        li
+          a(href='public/data/license.pdf') Авторские права
+      p.copy © 2001-2017 ООО "Яндекс"

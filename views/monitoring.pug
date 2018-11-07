@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    title Яндекс Дом/Видеонаблюдение
+    link(href='public/css/style.css', rel='stylesheet')
+    link(href='public/css/videoMonitoringStyle.css', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(charset='utf-8')
+    meta(name='robots', content='noindex')
+    // Core js
+    script(src='public/js/bundle.js')
+    script(src='https://cdn.jsdelivr.net/npm/hls.js@latest')
+  body.main-panel
+    append container
+      h1.main-feed Видеонаблюдение
+      .grid-container
+        #box-1.grid-item.m
+          .device-header
+            p.item-content-header Камера 1
+          .device-content
+            video#video-1.video(controls='', muted='', autoplay='')
+            .video-control
+              .video-range
+                label Яркость
+                input#brightness-1(type='range', value='1', step='0.1', min='1', max='5', oninput="changeBrightnessFilter('video-1', value)")
+                label Контраст
+                input#contrast-1(type='range', value='1', step='0.1', min='0.25', max='10', oninput="changeContrastFilter('video-1', value)")
+              label.volume-graph-label Ур. громкости
+              canvas#volume-graph-1.volume-video
+        #box-2.grid-item.m
+          .device-header
+            p.item-content-header Камера 2
+          .device-content
+            video#video-2.video(controls='', muted='', autoplay='')
+            .video-control
+              .video-range
+                label(for='#brightness-2') Яркость
+                input#brightness-2(type='range', value='1', step='0.1', min='1', max='5')
+                label(for='#contrast-2') Контраст
+                input#contrast-2(type='range', value='1', step='0.1', min='0.25', max='10')
+              label.volume-graph-label Ур. громкости
+              canvas#volume-graph-2.volume-video
+        #box-3.grid-item.m
+          .device-header
+            p.item-content-header Камера 3
+          .device-content
+            video#video-3.video(controls='', muted='', autoplay='')
+            .video-control
+              .video-range
+                label Яркость
+                br
+                input#brightness-3(type='range', value='1', step='0.1', min='1', max='5')
+                br
+                label Контраст
+                br
+                input#contrast-3(type='range', value='1', step='0.1', min='0.25', max='10')
+              label.volume-graph-label Ур. громкости
+              canvas#volume-graph-3.volume-video
+        #box-4.grid-item.m
+          .device-header
+            p.item-content-header Камера 4
+            button.btn.btn-default(style='display:none') Все камеры
+          .device-content
+            video#video-4.video(controls='', muted='', autoplay='')
+            .video-control
+              .video-range
+                label Яркость
+                input#brightness-4(type='range', value='1', step='0.1', min='1', max='5')
+                label Контраст
+                input#contrast-4(type='range', value='1', step='0.1', min='0.25', max='10')
+              label.volume-graph-label Ур. громкости
+              canvas#volume-graph-4.volume-video
